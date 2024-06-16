@@ -1,0 +1,40 @@
+
+  <div>
+
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Address</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list | paginate: { itemsPerPage: 10, currentPage: page } ; let i = index;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.mobile}}</td>
+          <td>{{item.address}}</td>
+          <td class="d-flex gap-2">
+            <span (click)="editDetails(item._id)"><fa-icon [icon]="['fas' , 'pen-to-square']"></fa-icon></span>
+            <span (click)="deleteHandler(item._id)"><fa-icon [icon]="['fas' , 'trash']"></fa-icon></span>
+          </td>
+        </tr>
+
+        
+      </tbody>
+    </table>
+    <div *ngIf="!list.length" class="d-flex justify-content-center">
+      <img  src="../../../../assets/no-data.jpg" alt="IMG">
+    </div>
+
+    <ng-container *ngIf="list.length">
+      <pagination-controls  (pageChange)="changePageHandler($event)" class="float-right"></pagination-controls>
+    </ng-container>
+    
+
+  </div>

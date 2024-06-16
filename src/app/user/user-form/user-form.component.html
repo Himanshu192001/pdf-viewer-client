@@ -1,0 +1,54 @@
+
+
+<div class="form-wrapper flex-column">
+    <div class="mb-4">
+        <h2>{{isEdit ? "Edit" : "Add"}} User Details Form</h2>
+    </div>
+    <div class="form-group form-container" [formGroup]="userForm">
+        <div class="mb-3">
+            <label for="name">Name:</label>
+            <input name="name" type="text" class="form-control" placeholder="Enter name" formControlName="name" (keyup)="clearValidation('name')">
+            <div class="font-min m-2">
+                <span *ngIf="this.invalid.includes('name')" class="error">
+                    <fa-icon [icon]="['fas' , 'info-circle']" class="mr-2"></fa-icon>
+                    Name is required !
+                </span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="mobile">Mobile:</label>
+            <input name="mobile" type="number" class="form-control" placeholder="Enter mobile" formControlName="mobile" (keyup)="clearValidation('mobile')">
+            <div class="font-min m-2">
+                <span *ngIf="this.invalid.includes('mobile')" class="error">
+                    <fa-icon [icon]="['fas' , 'info-circle']" class="mr-2"></fa-icon>
+                    mobile is required !
+                </span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email">Email:</label>
+            <input name="email" type="text" class="form-control" placeholder="Enter email" formControlName="email" (keyup)="clearValidation('email')">
+            <div class="font-min m-2">
+                <span *ngIf="this.invalid.includes('email')" class="error">
+                    <fa-icon [icon]="['fas' , 'info-circle']" class="mr-2"></fa-icon>
+                    Email is required !
+                </span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="address">Address:</label>
+            <textarea name="address" type="text" class="form-control" placeholder="Enter address here" formControlName="address" (keyup)="clearValidation('address')"></textarea>
+            <div class="font-min m-2">
+                <span *ngIf="this.invalid.includes('address')" class="error">
+                    <fa-icon [icon]="['fas' , 'info-circle']" class="mr-2"></fa-icon>
+                    Address is required !
+                </span>
+            </div>
+        </div>
+        <div class="mb-3 d-flex gap-4">
+            <button class="btn btn-primary" (click)="submit()" *ngIf="!isEdit">Submit</button>
+            <button class="btn btn-primary" (click)="edit()" *ngIf="isEdit">Edit</button>
+            <button class="btn btn-secondary" (click)="reset()">Reset</button>
+        </div>
+    </div>
+</div>

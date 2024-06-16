@@ -1,0 +1,30 @@
+.search-bar input{
+    width: 250px;
+    padding-right: 39px;
+}
+
+.search-bar
+{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pdf-viewer
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 600px;
+}
+
+iframe{
+    width: 100%;
+}
+
+.icoo
+{
+    font-size : 20px;
+}

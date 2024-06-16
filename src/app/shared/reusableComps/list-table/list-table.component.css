@@ -1,0 +1,8 @@
+
+
+.ngx-datatable .datatable-header-cell-template-wrap
+{
+  border : 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+}

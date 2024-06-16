@@ -1,0 +1,22 @@
+<div class="mb-4 mt-4">
+    <h2>User Listing Page!</h2>
+</div>
+
+<div>
+    <div class="search-bar">
+        <input type="text" class="form-control" placeholder="search">
+        <div class="d-flex gap-4">
+            <button class="btn-primary btn" (click)="generatePdf()">Pdf</button>
+            <button class="btn-primary btn" (click)="addDetails()">Add</button>
+        </div>
+    </div>
+
+    <app-list-table [page]="page" [limit]="limit" [list]="list" [totalCount]="totalCount"
+     (edit)="editEventHandler($event)" (delete)="deleteEventHandler($event)" (paginate)="handlePagination($event)"
+    ></app-list-table>
+
+    <div *ngIf="pdfSrc" class="pdf-viewer" >
+        <span (click)="pdfSrc = null"><fa-icon [icon]="['fas','circle-xmark']" class="icoo"></fa-icon></span>
+        <iframe [src]="pdfSrc" width="80%" height="600px"></iframe>
+    </div>
+</div>
